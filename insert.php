@@ -28,7 +28,7 @@
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                     $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
+                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
 
                 }
 

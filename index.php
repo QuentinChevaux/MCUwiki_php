@@ -23,7 +23,10 @@
             <?php
         
                 foreach($movies as $movie) {
-        
+
+                    setlocale(LC_TIME, "fr_FR","French");
+                    $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
+
                 ?>
         
                     <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
@@ -34,7 +37,7 @@
                         
                             <p> <?= $movie['description'] ?> </p>
                         
-                            <p> <?= $movie['date'] ?> </p>
+                            <p> <?= $date_fr ?> </p>
 
                         </div>
                     
