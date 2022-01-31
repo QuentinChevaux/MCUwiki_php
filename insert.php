@@ -12,34 +12,27 @@
 
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`)
-                                                  VALUES (?, ?, ?, ?) ');
+        $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?) ');
 
-        // Count total files
+        // Compte le nombre d'image
         $countfiles = count($_FILES['image']['name']);
 
-        // Loop all files
-        for($i=0; $i<$countfiles; $i++){
+        for($i=0; $i<$countfiles; $i++){  // Si j'enlève le count + for le file_extension devient faux
 
-            // File name
-            $filename = $_FILES['image']['name'][$i];
+            $filename = $_FILES['image']['name'];
 
-            // Location
-            $target_file = './assets/image/films/'.$filename;
+            $target_file = './assets/image/films/' . $filename;
 
-            // file extension
             $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
             $file_extension = strtolower($file_extension);
 
-            // Valid image extension
+            // Verifie si l'extension de l'image est valide
             $valid_extension = array("png","jpeg","jpg");
 
             if(in_array($file_extension, $valid_extension)){
 
-                // Upload file
-                if(move_uploaded_file($_FILES['image']['tmp_name'][$i],$target_file)){
+                if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                     // Execute query
                      $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
 
                 }
