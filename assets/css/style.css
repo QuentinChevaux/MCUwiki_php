@@ -1,0 +1,193 @@
+* {
+
+    margin: 0;
+    box-sizing: border-box;
+  
+}
+  
+@font-face {
+  
+    font-family: 'Marvel';
+    src: url(../fonts/Marvel.otf);
+  
+}
+  
+.flex_center {
+  
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  
+}
+
+header {
+
+    background-color: #D8041A;
+    
+}
+
+nav {
+  
+    padding-top: 35px;
+  
+}
+  
+nav li {
+  
+    list-style: none;
+  
+}
+
+nav a {
+
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.header_title {
+
+    margin-top: 20px;
+    text-decoration: none;
+  
+    color: white;
+    text-align: center;
+    font-family: Marvel;
+    font-size: 100px;
+  
+}
+  
+.header_description {
+  
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  
+}
+
+.movie_wrapper {
+
+    background-image: url(../image/background_movie_section.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: fixed;
+
+    padding: 100px;
+
+    height: 3000px;
+  
+}
+  
+.watcher {
+  
+    background-image: url(../image/watcher_opacity_35.png);
+    background-repeat: no-repeat;
+    background-size: 75%;
+  
+}
+
+.movie_card {
+
+    border-radius: 10px;
+    width: 300px;
+    height: 350px;
+    margin: 50px;
+    margin-top: 0;
+
+    background-size: cover;
+    
+    transition: 200ms ease-out; 
+
+}
+
+.movie_card:hover {
+
+    transform: scale(1.1);
+    transition: 200ms ease-in;
+  
+}
+  
+.movie_card_content {
+  
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0);
+  
+    text-align: center;
+    padding-top: 10px;
+    color: black;
+  
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.2s, opacity 0.2s, background-color 0.2s;
+    
+}
+  
+.movie_card:hover > .movie_card_content{
+  
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    background-color: rgba(211, 211, 211, .75);
+  
+}
+
+/* ADMIN INTERFARCE */
+
+.deconnexion {
+
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+    padding: 20px;
+
+}
+
+.deconnexion a {
+
+    text-decoration: none;
+    color: white;
+    
+
+}
+
+/* ADMIN BUTTON */
+
+.adminbutton {
+    
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    
+}
+
+.adminbutton button {
+    
+    font-size: 30px;
+    margin: 0 20px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    
+}
+
+#movieform, #serieform {
+
+    display: none;
+
+}
+
+#movieform input, #serieform input, #movieform textarea, #serieform textarea, .dashboard_form_validate_button {
+
+    border-radius: 10px !important;
+
+}
+
