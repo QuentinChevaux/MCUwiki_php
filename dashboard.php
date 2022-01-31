@@ -46,6 +46,8 @@
 
     </div>
 
+    <!-- MOVIE FORM -->
+
     <form action="" method="POST" id="movieform" class="mt-3">
 
         <div class="w-50 mx-auto">
