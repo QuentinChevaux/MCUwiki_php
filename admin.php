@@ -25,19 +25,37 @@
 
     }
 
+    include 'admin_header.php';
+
 ?>
 
-<form action="" method="POST">
+    <form action="" method="POST" id="admin_login">
 
-    <label for="login">Login : </label>
-    <input type="text" name="login"/>
+        <div class="w-50 mx-auto">
 
-    <label for="password">Password :</label>
-    <input type="password" name="password" />
+            <div class="form-floating mt-4">
+                
+                <input type="text" name="login" class="form-control"/>
+                <label for="login" class="form-label">Login :</label>
+                    
+            </div>
+                
+            <div class="form-floating mt-4">
+                
+                <input type="password" name="password" class="form-control"/>
+                <label for="password" class="form-label">Password :</label>
+                    
+            </div>
 
-    <input type="submit" name="valider" value="Se Connecter" />
+            <div>
+        
+                <button type="submit" name="valider" class="btn btn-dark w-100 mt-4 dashboard_form_validate_button">Se Connecter</button>
+        
+            </div>
+            
+        </div>
 
-</form>
+    </form>
 
 </body>
 </html>

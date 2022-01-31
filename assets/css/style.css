@@ -139,7 +139,16 @@ nav a {
   
 }
 
-/* ADMIN INTERFARCE */
+/* ADMIN LOGIN INTERFACE */
+
+#admin_login {
+
+    margin-top: 540px;
+
+}
+
+
+/* ADMIN INTERFACE */
 
 .deconnexion {
 
@@ -185,9 +194,8 @@ nav a {
 
 }
 
-#movieform input, #serieform input, #movieform textarea, #serieform textarea, .dashboard_form_validate_button {
+#movieform input, #serieform input, #movieform textarea, #serieform textarea, .dashboard_form_validate_button, #admin_login input {
 
     border-radius: 10px !important;
 
 }
-
