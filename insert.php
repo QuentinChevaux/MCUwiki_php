@@ -14,20 +14,15 @@
 
         $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?) ');
 
-        // Compte le nombre d'image
-        $countfiles = count($_FILES['image']['name']);
+        $filename = $_FILES['image']['name'];
 
-        for($i=0; $i<$countfiles; $i++){  // Si j'enlève le count + for le file_extension devient faux
+        $target_file = './assets/image/films/' . $filename;
 
-            $filename = $_FILES['image']['name'];
+        $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
+        $file_extension = strtolower($file_extension);
 
-            $target_file = './assets/image/films/' . $filename;
-
-            $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
-            $file_extension = strtolower($file_extension);
-
-            // Verifie si l'extension de l'image est valide
-            $valid_extension = array("png","jpeg","jpg");
+        // Verifie si l'extension de l'image est valide
+        $valid_extension = array("png","jpeg","jpg");
 
             if(in_array($file_extension, $valid_extension)){
 
@@ -38,8 +33,6 @@
                 }
 
             }
- 
-        }
 
         header('Location: ./dashboard.php');
 
@@ -49,10 +42,28 @@
 
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $movieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `date`)
-                                                  VALUES (?, ?, ?) ');
+        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `date`, `image`)
+                                                  VALUES (?, ?, ?, ?) ');
 
-        $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'] ]);
+        $filename = $_FILES['image']['name'];
+
+        $target_file = './assets/image/series/' . $filename;
+
+        $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
+        $file_extension = strtolower($file_extension);
+
+        // Verifie si l'extension de l'image est valide
+        $valid_extension = array("png","jpeg","jpg");
+
+            if(in_array($file_extension, $valid_extension)){
+
+                if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
+
+                    $serieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
+
+                }
+
+            }
 
         header('Location: ./dashboard.php');
 

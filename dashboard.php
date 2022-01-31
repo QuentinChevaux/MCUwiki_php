@@ -68,7 +68,7 @@
             <div class="form-group">
 
                 <label for="file" class="form-label mt-4">Image :</label>
-                <input class="form-control" type="file" name="image[]" />
+                <input class="form-control" type="file" name="image" />
 
             </div>
         
@@ -84,7 +84,7 @@
 
     <!-- SERIE FORM -->
 
-    <form action="insert.php" method="POST" id="serieform">
+    <form action="insert.php" method="POST" enctype='multipart/form-data' id="serieform" class="mt-3">
 
     <div class="w-50 mx-auto">
 
