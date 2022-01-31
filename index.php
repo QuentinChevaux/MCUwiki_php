@@ -16,43 +16,56 @@
 
 <section class="movie_wrapper">
 
-        <div class="watcher">
+    <div class="watcher">
 
-        <div class="flex_center">
+        <div>
 
-            <?php
+            <div class="sort_button_div">
+
+                <h2>Choissisez comment vous voulez triez les Films : </h2>
+
+                <button onclick="sortChronological()">Ordre Chronologique</button>
+
+                <button onclick="sortDate()">Date de Sortie</button>
+
+            </div>
+
+            <div class="flex_center">
         
-                foreach($movies as $movie) {
-
-                    setlocale(LC_TIME, "fr_FR","French");
-                    $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
-
+                <?php
+                
+                    foreach($movies as $movie) {
+        
+                        setlocale(LC_TIME, "fr_FR","French");
+                        $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
+        
+                    ?>
+                
+                        <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
+        
+                            <div class="movie_card_content">
+        
+                                <h2> <?= $movie['titre'] ?> </h2>
+                                
+                                <p> <?= $movie['description'] ?> </p>
+                                
+                                <p> <?= $date_fr ?> </p>
+        
+                            </div>
+                            
+                        </div>
+        
+                        <?php
+                
+                    }
+        
                 ?>
         
-                    <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
-
-                        <div class="movie_card_content">
-
-                            <h2> <?= $movie['titre'] ?> </h2>
-                        
-                            <p> <?= $movie['description'] ?> </p>
-                        
-                            <p> <?= $date_fr ?> </p>
-
-                        </div>
-                    
-                    
-                    </div>
-
-                    <?php
-        
-                }
-
-            ?>
+            </div>
 
         </div>
 
-        </div>
+    </div>
 
 
 </section>

@@ -14,6 +14,15 @@
 
         $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?) ');
 
+        // CONVERT TO MYSQL DATE FORMAT
+
+        $new_date = $_POST['date'];
+
+        $sqldate = explode('-', $new_date);
+        $new_date = $sqldate[2] . '-' . $sqldate[1] . '-' . $sqldate[0];
+
+        // UPLOAD IMAGE
+
         $filename = $_FILES['image']['name'];
 
         $target_file = './assets/image/films/' . $filename;
@@ -28,7 +37,7 @@
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
+                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $new_date, $filename]);
 
                 }
 
