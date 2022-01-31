@@ -60,7 +60,7 @@
         
             <div class="form-floating mt-4">
         
-                <input type="text" name="date" class="form-control"/>
+                <input type="date" name="date" class="form-control"/>
                 <label for="date" class="form-label">Date de Sortie :</label>
             
             </div>
