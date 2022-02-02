@@ -2,11 +2,11 @@
 
     $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-    $moviedisplay = $connexion_bdd -> prepare('SELECT * FROM serie WHERE id = '. $_GET["id"] );
+    $seriequery = $connexion_bdd -> prepare('SELECT * FROM serie WHERE id = '. $_GET["id"] );
 
-    $moviedisplay -> execute();
+    $seriequery -> execute();
 
-    $movie = $moviedisplay -> fetch();
+    $serie = $seriequery -> fetch();
 
     $title = 'Serie';
 
@@ -18,17 +18,24 @@
 
     <div class="div_image">
         
-        <div style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)"></div>
+        <div style="background-image: url(./assets/image/films/<?= $serie['image'] ?>)"></div>
         
     </div>
 
     <div class="div_texte">
 
-        <h2> <?= $movie['titre'] ?> </h2>
+        <h2> <?= $serie['titre'] ?> </h2>
 
-        <p> <?= $movie['description'] ?> </p>
+        <p> <?= $serie['description'] ?> </p>
 
-        <p> <?= $movie['date'] ?> </p>
+            <?php 
+
+                setlocale(LC_TIME, "French.UTF-8");
+                $date_fr = strftime("%d %B %Y", strtotime($serie['date']));
+
+            ?>
+
+        <p> <?= $date_fr ?> </p>
 
     </div>
 

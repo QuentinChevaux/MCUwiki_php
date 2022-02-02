@@ -28,7 +28,14 @@
 
         <p> <?= $movie['description'] ?> </p>
 
-        <p> <?= $movie['date'] ?> </p>
+            <?php 
+
+                setlocale(LC_TIME, "French.UTF-8");
+                $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
+
+            ?>
+
+        <p> <?= $date_fr ?> </p>
 
     </div>
 

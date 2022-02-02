@@ -214,8 +214,6 @@ nav a {
 .card_description_img {
 
     width: 20px;
-    margin-top: 100px;
-    text-align: center;
 
 }
 
@@ -262,7 +260,7 @@ nav a {
 
 /* ADMIN LOGIN INTERFACE */
 
-.admin_div {
+.admin_div, .savoir_plus {
 
     position: absolute;
     width: 100%;

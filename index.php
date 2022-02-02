@@ -55,9 +55,13 @@
         
                                 <h2> <?= $movie['titre'] ?> </h2>
 
-                                <img class="card_description_img" src="./assets/image/arrow.png" alt="">
-                                <p class="card_description">En savoir plus</p>
-                                
+                                <div class="savoir_plus">
+
+                                    <img class="card_description_img" src="./assets/image/arrow.png" alt="">
+                                    <p class="card_description">En savoir plus</p>
+
+                                </div>
+
                                 <p class="card_date capitalize"> <?= $date_fr ?> </p>
         
                             </div>
@@ -89,9 +93,13 @@
         
                                 <h2> <?= $serie['titre'] ?> </h2>
 
-                                <img class="card_description_img" src="./assets/image/arrow.png" alt="">
-                                <p class="card_description">En savoir plus</p>
-                                
+                                <div class="savoir_plus">
+
+                                    <img class="card_description_img" src="./assets/image/arrow.png" alt="">
+                                    <p class="card_description">En savoir plus</p>
+
+                                </div>
+
                                 <p class="card_date capitalize"> <?= $date_fr ?> </p>
         
                             </div>
