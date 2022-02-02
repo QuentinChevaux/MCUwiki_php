@@ -2,11 +2,17 @@
 
     $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-    $movierequest = $connexion_bdd -> prepare('SELECT * FROM film');
+    $request = $connexion_bdd -> prepare('SELECT * FROM film');
 
-    $movierequest -> execute();
+    $request -> execute();
 
-    $movies = $movierequest -> fetchAll();
+    $movies = $request -> fetchAll();
+
+    $request2 = $connexion_bdd -> prepare('SELECT * FROM serie');
+
+    $request2 -> execute();
+
+    $series = $request2 -> fetchAll();
 
     $title = 'MCUwiki';
 
@@ -41,7 +47,7 @@
 
                     ?>
 
-                    <a href="./films.php?id=<?= $movie['id'] ?>">
+                    <a href="./film.php?id=<?= $movie['id'] ?>">
                 
                         <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
         
@@ -49,7 +55,41 @@
         
                                 <h2> <?= $movie['titre'] ?> </h2>
 
-                                <img class="card_description_img" src="./assets/image/arrow.png" alt="">                                
+                                <img class="card_description_img" src="./assets/image/arrow.png" alt="">
+                                <p class="card_description">En savoir plus</p>
+                                
+                                <p class="card_date capitalize"> <?= $date_fr ?> </p>
+        
+                            </div>
+                            
+                        </div>
+
+                    </a>
+        
+                        <?php
+                
+                    }
+        
+                ?>
+
+                <?php
+                    
+                    foreach($series as $serie) {
+        
+                        setlocale(LC_TIME, "French.UTF-8");
+                        $date_fr = strftime("%d %B %Y", strtotime($serie['date']));
+
+                    ?>
+
+                    <a href="./serie.php?id=<?= $serie['id'] ?>">
+                
+                        <div class='movie_card' style="background-image: url(./assets/image/films/<?= $serie['image'] ?>)">
+        
+                            <div class="movie_card_content">
+        
+                                <h2> <?= $serie['titre'] ?> </h2>
+
+                                <img class="card_description_img" src="./assets/image/arrow.png" alt="">
                                 <p class="card_description">En savoir plus</p>
                                 
                                 <p class="card_date capitalize"> <?= $date_fr ?> </p>

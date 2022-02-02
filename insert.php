@@ -51,8 +51,7 @@
 
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `date`, `image`)
-                                                  VALUES (?, ?, ?, ?) ');
+        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?) ');
 
         $filename = $_FILES['image']['name'];
 
@@ -70,9 +69,11 @@
 
                     $serieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
 
+
                 }
 
             }
+            
 
         header('Location: ./dashboard.php');
 
