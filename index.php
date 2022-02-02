@@ -48,8 +48,9 @@
                             <div class="movie_card_content">
         
                                 <h2> <?= $movie['titre'] ?> </h2>
-                                
-                                <p class="card_description"> <?= $movie['description'] ?> </p>
+
+                                <img class="card_description_img" src="./assets/image/arrow.png" alt="">                                
+                                <p class="card_description">En savoir plus</p>
                                 
                                 <p class="card_date capitalize"> <?= $date_fr ?> </p>
         

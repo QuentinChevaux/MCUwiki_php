@@ -13,6 +13,12 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+.flex {
+
+    display: flex;
+
+}
   
 .flex_center {
   
@@ -90,6 +96,8 @@ nav a {
     padding-bottom: 30px;
   
 }
+
+                                                                            /* HOMEPAGE */
 
 .movie_wrapper {
 
@@ -184,7 +192,7 @@ nav a {
     
 }
 
-.movie_card_content h2, .card_description {
+.movie_card_content h2 {
 
     padding: 10px;
 
@@ -200,6 +208,14 @@ nav a {
 
     font-family: Marvel;
     font-size: 35px;
+
+}
+
+.card_description_img {
+
+    width: 20px;
+    margin-top: 100px;
+    text-align: center;
 
 }
 
@@ -220,6 +236,29 @@ nav a {
     background-color: rgba(0, 0, 0, 0.75);
   
 }
+
+                                                                        /* FILM PAGE */
+
+.div_image, .div_texte {
+
+    margin: 50px;
+    width: 40%;
+
+}
+
+.div_image div {
+
+    width: 500px;
+    margin: auto;
+    height: 650px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+                                        
+
+                                                                    /* ADMIN + DASHBOARD PAGE */
 
 /* ADMIN LOGIN INTERFACE */
 

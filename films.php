@@ -14,6 +14,24 @@
 
 ?>
 
-<p><?= $movie['titre'] ?></p>
+<div class="flex_center div_presentation_film">
+
+    <div class="div_image">
+        
+        <div style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)"></div>
+        
+    </div>
+
+    <div class="div_texte">
+
+        <h2> <?= $movie['titre'] ?> </h2>
+
+        <p> <?= $movie['description'] ?> </p>
+
+        <p> <?= $movie['date'] ?> </p>
+
+    </div>
+
+</div>
 
 
