@@ -14,7 +14,9 @@
 
     <header>
 
-        <div class="deconnexion">
+        <div class="deconnexion flex_between">
+
+            <a href="./">Retourner a la Page Principale</a>
 
             <a href="deconnexion-admin.php">Se Deconnecter</a>
 
@@ -64,7 +66,26 @@
                 <label for="date" class="form-label">Date de Sortie :</label>
             
             </div>
+
+            <p class="mt-4">A la suite dans la Chronologie ?</p>
+
+            <div class="btn-group radio_button w-100" role="group" aria-label="Basic radio toggle button group">
+
+                <input type="radio" class="btn-check" name="btnradio" id="btn_radio_oui" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btn_radio_oui">Oui</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btn_radio_non" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn_radio_non">Non</label>
+
+            </div>
+
+            <div class="form-floating mt-4" id="film_order">
         
+                <input type="number" name="titre" class="form-control"/>
+                <label for="titre" class="form-label">Ordre du Film :</label>
+            
+            </div>
+
             <div class="form-group">
 
                 <label for="file" class="form-label mt-4">Image :</label>

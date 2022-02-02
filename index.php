@@ -36,9 +36,9 @@
                 
                     foreach($movies as $movie) {
         
-                        setlocale(LC_TIME, "fr_FR","French");
+                        setlocale(LC_TIME, "French.UTF-8");
                         $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
-        
+
                     ?>
                 
                         <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
@@ -47,9 +47,9 @@
         
                                 <h2> <?= $movie['titre'] ?> </h2>
                                 
-                                <p> <?= $movie['description'] ?> </p>
+                                <p class="card_description"> <?= $movie['description'] ?> </p>
                                 
-                                <p> <?= $date_fr ?> </p>
+                                <p class="card_date capitalize"> <?= $date_fr ?> </p>
         
                             </div>
                             

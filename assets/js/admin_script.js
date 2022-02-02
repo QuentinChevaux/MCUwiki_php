@@ -43,3 +43,37 @@ function closeSerieForm() {
     document.getElementById('serieform').style.display = 'none';
 
 }
+
+document.getElementById('btn_radio_non').addEventListener('click', () => {
+
+    if_radio_non();
+
+});
+
+document.getElementById('btn_radio_oui').addEventListener('click', () => {
+
+    if_radio_oui();
+
+});
+
+
+function if_radio_non() {
+
+    if (document.getElementById('btn_radio_non').checked) {
+    
+        document.getElementById('film_order').style.display = 'block';
+    
+    }
+
+}
+
+function if_radio_oui() {
+
+    if (document.getElementById('btn_radio_oui').checked) {
+    
+        document.getElementById('film_order').style.display = 'none';
+    
+    }
+
+}
+
