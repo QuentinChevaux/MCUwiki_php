@@ -40,6 +40,8 @@
                         $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
 
                     ?>
+
+                    <a href="./films.php?id=<?= $movie['id'] ?>">
                 
                         <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
         
@@ -54,6 +56,8 @@
                             </div>
                             
                         </div>
+
+                    </a>
         
                         <?php
                 

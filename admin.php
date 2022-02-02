@@ -2,6 +2,12 @@
 
     session_start();
 
+    if(isset($_SESSION['admin'])) {
+
+        header('Location: dashboard.php');
+
+    }
+
     if(isset($_POST['valider'])) {
 
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');

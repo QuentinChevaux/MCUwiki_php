@@ -9,12 +9,12 @@
     }
 
     if(isset($_POST['valider_movie'])) {
-
+        
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?) ');
+        $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?)');
 
-        // CONVERT TO MYSQL DATE FORMAT (PAS NECESSAIRE CAR LA DATE SORT AUTOMATIQUEMENT EN FORMAT EN)
+        // CONVERT TO MYSQL DATE FORMAT (PAS NECESSAIRE CAR LA DATE SORT AUTOMATIQUEMENT EN FORMAT en)
 
             // $new_date = $_POST['date'];
 
@@ -37,7 +37,7 @@
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
+                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename ]);
 
                 }
 

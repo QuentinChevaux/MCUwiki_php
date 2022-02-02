@@ -81,8 +81,8 @@
 
             <div class="form-floating mt-4" id="film_order">
         
-                <input type="number" name="titre" class="form-control"/>
-                <label for="titre" class="form-label">Ordre du Film :</label>
+                <input type="number" name="ordre" class="form-control"/>
+                <label for="ordre" class="form-label">Ordre du Film :</label>
             
             </div>
 

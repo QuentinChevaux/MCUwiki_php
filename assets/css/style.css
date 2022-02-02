@@ -35,6 +35,12 @@
 
 }
 
+a {
+
+    text-decoration: none;
+
+}
+
 header {
 
     background-color: #D8041A;
@@ -156,6 +162,8 @@ nav a {
 
     transform: scale(1.1);
     transition: 200ms ease-in;
+
+    cursor: pointer;
   
 }
   
