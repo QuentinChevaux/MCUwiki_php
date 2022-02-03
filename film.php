@@ -53,7 +53,7 @@
 
             ?>
 
-        <p class="movie_page_card_release_text"> Date de Sortie du Film : <span><?= $date_fr ?></span> </p>
+        <p class="movie_page_card_release_text capitalize"> Date de Sortie du Film : <span><?= $date_fr ?></span> </p>
 
         <p class="movie_page_card_description_text"> <span><?= $movie['description'] ?></span> </p>
 
