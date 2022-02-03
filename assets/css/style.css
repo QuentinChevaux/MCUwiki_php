@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
 * {
 
     margin: 0;
@@ -11,8 +13,6 @@
     src: url(../fonts/Marvel.otf);
   
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 .flex {
 
@@ -200,13 +200,13 @@ nav a {
 
 .card_description, .card_date {
 
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
 
 }
 
 .movie_card_content h2 {
 
-    font-family: Marvel;
+    font-family: 'Marvel';
     font-size: 35px;
 
 }
@@ -244,6 +244,41 @@ nav a {
 
 }
 
+.div_texte h2 {
+
+    font-family: Marvel;
+    font-size: 100px;
+
+}
+
+.div_texte {
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.movie_page_card_duration_text, .movie_page_card_release_text {
+
+    font-size: 20px;
+    color: grey;
+
+}
+
+.movie_page_card_description_text {
+
+    color: grey;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+
+}
+
+.div_texte span {
+
+    color: black;
+
+}
+
 .div_image div {
 
     width: 500px;
@@ -253,8 +288,7 @@ nav a {
     background-repeat: no-repeat;
     background-size: cover;
 
-}
-                                        
+}                                        
 
                                                                     /* ADMIN + DASHBOARD PAGE */
 

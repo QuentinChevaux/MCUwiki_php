@@ -59,6 +59,13 @@
                 <textarea name="description" rows="3" class="form-control"></textarea>
         
             </div>
+
+            <div class="form-floating mt-4">
+        
+                <input type="number" name="duree" class="form-control"/>
+                <label for="duree" class="form-label">Durée (en minutes) :</label>
+            
+            </div>
         
             <div class="form-floating mt-4">
         
@@ -95,7 +102,7 @@
         
             <div>
         
-                <button type="submit" name="valider_movie" class="btn btn-dark w-100 mt-4 dashboard_form_validate_button">Valider</button>
+                <button type="submit" name="valider_movie" class="btn btn-dark w-100 mt-4 mb-5 dashboard_form_validate_button">Valider</button>
         
             </div>
 
@@ -129,6 +136,13 @@
             <label for="description" class="form-label mt-4">Description : </label>
             <textarea name="description" rows="3" class="form-control"></textarea>
 
+        </div>
+
+        <div class="form-floating mt-4">
+        
+                <input type="number" name="duree" class="form-control"/>
+                <label for="duree" class="form-label">Durée (en minutes) :</label>
+            
         </div>
 
         <div class="form-floating mt-4">

@@ -26,7 +26,25 @@
 
         <h2> <?= $movie['titre'] ?> </h2>
 
-        <p> <?= $movie['description'] ?> </p>
+            <?php
+
+                if($movie['duree'] >= 120) {
+
+                    $texte_heure = ' heures';
+
+                }
+
+                else {
+
+                    $texte_heure = ' heure';
+
+                }
+
+                $duration_converted = intdiv($movie['duree'], 60) . $texte_heure . " et " . ($movie['duree'] % 60) . " minutes.";
+
+            ?>
+
+        <p class="movie_page_card_duration_text"> Durée du Film : <span><?= $duration_converted ?></span> </p>
 
             <?php 
 
@@ -35,7 +53,10 @@
 
             ?>
 
-        <p> <?= $date_fr ?> </p>
+        <p class="movie_page_card_release_text"> Date de Sortie du Film : <span><?= $date_fr ?></span> </p>
+
+        <p class="movie_page_card_description_text"> <span><?= $movie['description'] ?></span> </p>
+
 
     </div>
 

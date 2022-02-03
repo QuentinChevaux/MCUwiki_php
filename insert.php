@@ -12,7 +12,7 @@
         
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?)');
+        $movieinsert = $connexion_bdd -> prepare('INSERT INTO film (`titre`, `description`, `duree`, `date`, `image`) VALUES (?, ?, ?, ?, ?)');
 
         // CONVERT TO MYSQL DATE FORMAT (PAS NECESSAIRE CAR LA DATE SORT AUTOMATIQUEMENT EN FORMAT en)
 
@@ -37,7 +37,7 @@
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename ]);
+                    $movieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['duree'], $_POST['date'], $filename ]);
 
                 }
 
@@ -51,7 +51,7 @@
 
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `date`, `image`) VALUES (?, ?, ?, ?) ');
+        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `duree`, `date`, `image`) VALUES (?, ?, ?, ?, ?) ');
 
         $filename = $_FILES['image']['name'];
 
@@ -67,8 +67,7 @@
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                    $serieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $filename]);
-
+                    $serieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['duree'], $_POST['date'], $filename]);
 
                 }
 

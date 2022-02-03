@@ -27,6 +27,14 @@
 
             }
 
+            else {
+
+                echo '<script language="javascript">';
+                echo 'alert("Login ou Mot de Passe Incorrect")';
+                echo '</script>';
+
+            }
+
         }
 
     }
