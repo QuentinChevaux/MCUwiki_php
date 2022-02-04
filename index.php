@@ -47,79 +47,86 @@
 
                     ?>
 
-                    <a href="./film.php?id=<?= $movie['id'] ?>">
-                
-                        <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
-        
-                            <div class="movie_card_content">
-        
-                                <h2> <?= $movie['titre'] ?> </h2>
+                    <div class="card_margin">
 
-                                <div class="savoir_plus">
-
-                                    <img class="card_description_img" src="./assets/image/arrow.png" alt="">
-                                    <p class="card_description">En savoir plus</p>
-
-                                </div>
-
-                                <p class="card_date capitalize"> <?= $date_fr ?> </p>
-        
-                            </div>
-                            
-                        </div>
-
-                    </a>
-        
-                        <?php
-                
-                    }
-        
-                ?>
-
-                <?php
+                        <a href="./film.php?id=<?= $movie['id'] ?>">
                     
-                    foreach($series as $serie) {
-        
-                        setlocale(LC_TIME, "French.UTF-8");
-                        $date_fr = strftime("%d %B %Y", strtotime($serie['date']));
+                            <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
+            
+                                <div class="movie_card_content">
+            
+                                    <h2> <?= $movie['titre'] ?> </h2>
 
-                    ?>
+                                    <div class="savoir_plus">
 
-                    <a href="./serie.php?id=<?= $serie['id'] ?>">
-                
-                        <div class='movie_card' style="background-image: url(./assets/image/films/<?= $serie['image'] ?>)">
-        
-                            <div class="movie_card_content">
-        
-                                <h2> <?= $serie['titre'] ?> </h2>
+                                        <img class="card_description_img" src="./assets/image/arrow.png" alt="">
+                                        <p class="card_description">En savoir plus</p>
 
-                                <div class="savoir_plus">
+                                    </div>
 
-                                    <img class="card_description_img" src="./assets/image/arrow.png" alt="">
-                                    <p class="card_description">En savoir plus</p>
-
+                                    <p class="card_date capitalize"> <?= $date_fr ?> </p>
+            
                                 </div>
-
-                                <p class="card_date capitalize"> <?= $date_fr ?> </p>
-        
+                                
                             </div>
-                            
-                        </div>
 
-                    </a>
+                        </a>
+
+                    </div>
         
                         <?php
                 
                     }
         
                 ?>
+
+                    <?php
+                        
+                        foreach($series as $serie) {
+            
+                            setlocale(LC_TIME, "French.UTF-8");
+                            $date_fr = strftime("%d %B %Y", strtotime($serie['date']));
+
+                        ?>
+                        
+                        <div class="card_margin">
+
+                            <a href="./serie.php?id=<?= $serie['id'] ?>">
+                        
+                                <div class='movie_card' style="background-image: url(./assets/image/series/<?= $serie['image'] ?>)">
+                
+                                    <div class="movie_card_content">
+                
+                                        <h2> <?= $serie['titre'] ?> </h2>
+
+                                        <div class="savoir_plus">
+
+                                            <img class="card_description_img" src="./assets/image/arrow.png" alt="">
+                                            <p class="card_description">En savoir plus</p>
+
+                                        </div>
+
+                                        <p class="card_date capitalize"> <?= $date_fr ?> </p>
+                
+                                    </div>
+                                    
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                        <?php
+                    
+                        }
+                
+                    ?>
         
             </div>
 
         </div>
 
     </div>
-
 
 </section>
 

@@ -153,12 +153,17 @@ nav a {
 
 /* MOVIE CARD */
 
+.card_margin {
+
+    margin: 50px;
+
+}
+
 .movie_card {
     
     border-radius: 10px;
     width: 300px;
     height: 350px;
-    margin: 50px;
 
     background-size: cover;
     
@@ -257,7 +262,7 @@ nav a {
 
 }
 
-.movie_page_card_duration_text, .movie_page_card_release_text {
+.movie_page_card_duration_text, .movie_page_card_release_text, .movie_page_streaming {
 
     font-size: 20px;
     color: grey;
@@ -344,6 +349,12 @@ nav a {
     padding: 20px 40px;
     border-radius: 10px;
     
+}
+
+.confirmation_text {
+
+    text-align: center;
+
 }
 
 #movieform, #serieform, #film_order {

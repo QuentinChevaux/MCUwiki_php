@@ -32,6 +32,54 @@
 
     </div>
 
+    <div class='confirmation_text'>
+
+        <?php
+
+            if(isset($_SESSION['moviemessage'])) {
+
+            ?>
+
+                <h2 style='display: block' class="confirmmessage"><?= $_SESSION['moviemessage'] ?></h2>
+
+                <script>
+                    
+                    setTimeout(function(){
+                        document.querySelector('.confirmmessage').style.display = 'none';
+                    }, 2000);
+
+                </script>
+
+        <?php
+
+                unset($_SESSION['moviemessage']);
+
+            }
+
+            if(isset($_SESSION['seriemessage'])) {
+
+            ?>
+
+                <h2 style='display: block' class="confirmmessage"><?= $_SESSION['seriemessage'] ?></h2>
+
+                <script>
+
+                    setTimeout(function(){
+                        document.querySelector('.confirmmessage').style.display = 'none';
+                    }, 2000);
+
+                </script>
+
+        <?php
+
+                unset($_SESSION['seriemessage']);
+
+            }
+
+        ?>
+
+    </div>
+
     <!-- MOVIE FORM -->
 
     <form action="insert.php" method="POST" enctype='multipart/form-data' id="movieform" class="mt-3">
@@ -140,8 +188,8 @@
 
         <div class="form-floating mt-4">
         
-                <input type="number" name="duree" class="form-control"/>
-                <label for="duree" class="form-label">Durée (en minutes) :</label>
+                <input type="number" name="nbepisode" class="form-control"/>
+                <label for="nbepisode" class="form-label">Nombre d'Épisodes :</label>
             
         </div>
 
@@ -166,8 +214,9 @@
         </div>
 
         </div>
-        
+
     </form>
+
 
 </body>
 </html>

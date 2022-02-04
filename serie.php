@@ -14,11 +14,13 @@
 
 ?>
 
+</div>
+
 <div class="flex_center div_presentation_film">
 
     <div class="div_image">
         
-        <div style="background-image: url(./assets/image/films/<?= $serie['image'] ?>)"></div>
+        <div style="background-image: url(./assets/image/series/<?= $serie['image'] ?>)"></div>
         
     </div>
 
@@ -26,7 +28,7 @@
 
         <h2> <?= $serie['titre'] ?> </h2>
 
-        <p> <?= $serie['description'] ?> </p>
+        <p class="movie_page_card_duration_text"> Nombre d'Épisodes : <span><?= $serie['nbepisode'] ?></span> </p>
 
             <?php 
 
@@ -35,10 +37,11 @@
 
             ?>
 
-        <p> <?= $date_fr ?> </p>
+        <p class="movie_page_card_release_text capitalize"> Date de Sortie de la Serie : <span><?= $date_fr ?></span> </p>
+
+        <p class="movie_page_card_description_text"> <span><?= $serie['description'] ?></span> </p>
 
     </div>
 
 </div>
-
 

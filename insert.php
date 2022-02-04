@@ -43,6 +43,17 @@
 
             }
 
+        if ($movieinsert) {
+
+            $_SESSION['moviemessage']  = 'Le Film à bien été ajoutée à la base de donnée';
+    
+        }
+        else {
+    
+            $_SESSION['moviemessage'] = 'Une Erreur est Survenue veuillez réessayer !';
+    
+        }
+
         header('Location: ./dashboard.php');
 
     }
@@ -51,7 +62,7 @@
 
         $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `duree`, `date`, `image`) VALUES (?, ?, ?, ?, ?) ');
+        $serieinsert = $connexion_bdd -> prepare('INSERT INTO serie (`titre`, `description`, `date`, `nbepisode`, `image`) VALUES (?, ?, ?, ?, ?) ');
 
         $filename = $_FILES['image']['name'];
 
@@ -67,12 +78,22 @@
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
-                    $serieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['duree'], $_POST['date'], $filename]);
+                    $serieinsert -> execute([ $_POST['titre'], $_POST['description'], $_POST['date'], $_POST['nbepisode'],  $filename]);
 
                 }
 
             }
             
+        if ($serieinsert) {
+
+            $_SESSION['seriemessage']  = 'La Serie à bien été ajoutée à la base de donnée';
+
+        }
+        else {
+
+            $_SESSION['seriemessage'] = 'Une Erreur est Survenue veuillez réessayer !';
+
+        }
 
         header('Location: ./dashboard.php');
 

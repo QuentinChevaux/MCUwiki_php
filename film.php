@@ -57,9 +57,29 @@
 
         <p class="movie_page_card_description_text"> <span><?= $movie['description'] ?></span> </p>
 
+        <?php 
+
+            if($movie['streaming'] != null) {
+                ?>
+                    <p class="movie_page_streaming">Disponible sur : <span><?= $movie['streaming'] ?></span> </p>
+
+            <?php
+
+            }
+            else {
+                ?>
+
+                    <p class="movie_page_streaming">Disponible sur Aucune Platforme de Streaming</p>
+
+            <?php
+
+            }
+
+        ?>
 
     </div>
 
 </div>
+
 
 
