@@ -58,19 +58,19 @@
 
 					if (preg_match("/disney/", $response, $matches)) {
 
-						echo 'Mis ' . $matches . ' dans ' . $res['titre'];
+						echo 'Mis ' . $matches . ' dans ' . $res['titre'] . '<br />';
 
 						$update -> execute([ $matches[0], $res['tmdb'] ]);
 
 					} else if (preg_match("/netflix/", $response, $matches)) {
 
-						echo 'Mis ' . $matches . ' dans ' . $res['titre'];
+						echo 'Mis ' . $matches . ' dans ' . $res['titre'] . '<br />';
 
 						$update -> execute([ $matches[0], $res['tmdb'] ]);
 
 					} else if (preg_match("/prime/", $response, $matches)) {
 
-						echo 'Mis ' . $matches . ' dans ' . $res['titre'];
+						echo 'Mis ' . $matches . ' dans ' . $res['titre'] . '<br />';
 
 						$update -> execute([ $matches[0], $res['tmdb'] ]);				
 
