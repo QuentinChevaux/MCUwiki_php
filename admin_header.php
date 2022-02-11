@@ -15,3 +15,15 @@
 </head>
 
 <body>
+
+    <header>
+
+            <div class="deconnexion flex_between">
+
+                <a href="./">Retourner a la Page Principale</a>
+
+                <a href="deconnexion-admin.php">Se Deconnecter</a>
+
+            </div>        
+
+    </header>

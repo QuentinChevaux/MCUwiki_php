@@ -12,18 +12,6 @@
 
 ?>
 
-    <header>
-
-        <div class="deconnexion flex_between">
-
-            <a href="./">Retourner a la Page Principale</a>
-
-            <a href="deconnexion-admin.php">Se Deconnecter</a>
-
-        </div>        
-
-    </header>
-
     <div class="adminbutton mt-5">
 
         <button type='button' class='btn btn-dark' onclick='showMovieForm()'>Ajouter un Film</button>

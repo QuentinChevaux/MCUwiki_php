@@ -19,6 +19,12 @@
     display: flex;
 
 }
+
+.align-center {
+
+    align-self: center;
+
+}
   
 .flex_center {
   
@@ -240,7 +246,7 @@ nav a {
   
 }
 
-                                                                        /* FILM PAGE */
+                                                                        /* FILM / SERIE PAGE */
 
 .div_image, .div_texte {
 
@@ -293,7 +299,16 @@ nav a {
     background-repeat: no-repeat;
     background-size: cover;
 
-}                                        
+}
+
+.streaming_link_button img {
+
+    width: 150px;
+    height: 75px;
+    border-radius: 10px;
+    margin-left: 20px;
+
+}
 
                                                                     /* ADMIN + DASHBOARD PAGE */
 

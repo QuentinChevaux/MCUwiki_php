@@ -43,16 +43,30 @@
 
         <?php 
 
-            if($serie['streaming'] != null) {
+            if($serie['streaming_link'] != null) {
                 ?>
-                    <p class="movie_page_streaming">Disponible sur : <span><?= $serie['streaming'] ?></span> </p>
+                    
+                    <div class="streaming_link_button flex">
+
+                        <div class="align-center">
+
+                            <p class="movie_page_streaming">Disponible sur : </p>
+
+                        </div>
+
+                        <div>
+
+                            <a href="<?= $serie['streaming_link'] ?>" target='_blank'> <img src="./assets/image/disney+_logo.jpg" alt="Logo disney+" /></a>
+
+                        </div>
+
+                    </div>
 
             <?php
 
             }
             else {
                 ?>
-
                     <p class="movie_page_streaming">Disponible sur Aucune Platforme de Streaming</p>
 
             <?php
