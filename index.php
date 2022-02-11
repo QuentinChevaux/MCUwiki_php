@@ -2,11 +2,13 @@
 
     $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-    $request = $connexion_bdd -> prepare('SELECT * FROM film');
+    $request_chronological = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `date_fictive`');
+    $request_date = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `id`');
 
-    $request -> execute();
+    $request_chronological -> execute();
+    $request_date -> execute();
 
-    $movies = $request -> fetchAll();
+    $movies = $request_date -> fetchAll();
 
     $request2 = $connexion_bdd -> prepare('SELECT * FROM serie');
 
@@ -30,15 +32,39 @@
 
                 <h2>Choissisez comment vous voulez triez les Films : </h2>
 
-                <button onclick="sortChronological()">Ordre Chronologique</button>
+                <form action="" method="POST">
 
-                <button onclick="sortDate()">Date de Sortie</button>
+                    <button name='chronological'>Ordre Chronologique</button>
+
+                    <button name='date'>Date de Sortie</button>
+
+                </form>
 
             </div>
 
             <div class="flex_center">
         
                 <?php
+
+                if(isset($_POST['chronological'])){
+
+                    $request_chronological = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `date_fictive`');
+
+                    $request_chronological -> execute();
+
+                    $movies = $request_chronological -> fetchAll();
+
+                }
+
+                if(isset($_POST['date'])) {
+
+                    $request_date = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `id`');
+
+                    $request_date -> execute();
+
+                    $movies = $request_date -> fetchAll();
+
+                }
                 
                     foreach($movies as $movie) {
         
