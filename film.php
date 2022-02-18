@@ -48,8 +48,8 @@
 
             <?php 
 
-                setlocale(LC_TIME, "French.UTF-8");
-                $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
+                $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                $date_fr = $date -> format(strtotime($movie['date']));
 
             ?>
 

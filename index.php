@@ -2,19 +2,52 @@
 
     $connexion_bdd = new PDO('mysql:dbname=mcuwiki;host=localhost;charset=UTF8', 'root', '');
 
-    $request_chronological = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `date_fictive`');
-    $request_date = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `id`');
+    $request_movie = $connexion_bdd -> prepare('SELECT * FROM film');
+    $request_movie -> execute();
+    $movies = $request_movie -> fetchAll();
 
-    $request_chronological -> execute();
-    $request_date -> execute();
+    $request_serie = $connexion_bdd -> prepare('SELECT * FROM serie');
+    $request_serie -> execute();
+    $series = $request_serie -> fetchAll();
 
-    $movies = $request_date -> fetchAll();
+        // $tableau = [
 
-    $request2 = $connexion_bdd -> prepare('SELECT * FROM serie');
+        //     'id' => '',
+        //     'titre' => '',
+        //     'description' => '',
+        //     'date' => '',
+        //     'duree' => '',
+        //     'nbepisode' => '', 
+        //     'date_fictive' => '',
+        //     'image' => '',
+        //     'tmdb' => '',
+        //     'streaming' => '',
+        //     'streaming_link' => ''
 
-    $request2 -> execute();
+        // ];
 
-    $series = $request2 -> fetchAll();
+    foreach($movies as $movie) {
+
+        $tableau[] = [
+
+            'id' => $movie['id'],
+            'titre' => $movie['titre'],
+            'description' => $movie['description'],
+            'date' => $movie['date'],
+            'duree' => $movie['duree'],
+            'date_fictive' => $movie['date_fictive'],
+            'image' => $movie['image'],
+            'tmdb' => $movie['tmdb'],
+            'streaming' => $movie['streaming'],
+            'streaming_link' => $movie['streaming_link']
+
+        ];
+
+    }
+
+    echo '<pre>';
+    var_dump($tableau);
+    echo '</pre>';
 
     $title = 'MCUwiki';
 
@@ -32,50 +65,28 @@
 
                 <h2>Choissisez comment vous voulez triez les Films : </h2>
 
-                <form action="" method="POST">
-
                     <button name='chronological'>Ordre Chronologique</button>
 
                     <button name='date'>Date de Sortie</button>
 
-                </form>
-
             </div>
 
-            <div class="flex_center">
+            <!-- ANCIEN CODE AVEC DOUBLE FOREACH -->
+
+            <!-- <div class="flex_center">
         
                 <?php
-
-                if(isset($_POST['chronological'])){
-
-                    $request_chronological = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `date_fictive`');
-
-                    $request_chronological -> execute();
-
-                    $movies = $request_chronological -> fetchAll();
-
-                }
-
-                if(isset($_POST['date'])) {
-
-                    $request_date = $connexion_bdd -> prepare('SELECT * FROM film ORDER BY `id`');
-
-                    $request_date -> execute();
-
-                    $movies = $request_date -> fetchAll();
-
-                }
                 
-                    foreach($movies as $movie) {
-        
-                        setlocale(LC_TIME, "French.UTF-8");
-                        $date_fr = strftime("%d %B %Y", strtotime($movie['date']));
+                    // foreach($movies as $movie) {
 
-                    ?>
+                    //     $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                    //     $date_fr = $date -> format(strtotime($movie['date']));
+
+                ?>
 
                     <div class="card_margin">
 
-                        <a href="./film.php?id=<?= $movie['id'] ?>">
+                        <a href="./film.php?id= <?= $movie['id'] ?>">
                     
                             <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
             
@@ -102,18 +113,18 @@
         
                         <?php
                 
-                    }
+                    // }
         
                 ?>
 
                     <?php
                         
-                        foreach($series as $serie) {
+                        // foreach($series as $serie) {
             
-                            setlocale(LC_TIME, "French.UTF-8");
-                            $date_fr = strftime("%d %B %Y", strtotime($serie['date']));
+                        //     $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                        //     $date_fr = $date -> format(strtotime($movie['date']));
 
-                        ?>
+                    ?>
                         
                         <div class="card_margin">
 
@@ -144,11 +155,15 @@
 
                         <?php
                     
-                        }
+                        // }
                 
                     ?>
         
-            </div>
+            </div> -->
+
+            <!-- NOUVEAU CODE D'AFFICHAGE -->
+
+
 
         </div>
 
