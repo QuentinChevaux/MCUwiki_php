@@ -60,13 +60,76 @@
         <?php 
 
             if($movie['streaming'] != null) {
+
+                if($movie['streaming'] == 'disney') {
                 ?>
-                    <p class="movie_page_streaming">Disponible sur : <span><?= $movie['streaming'] ?></span> </p>
+                    <div class="streaming_link_button flex">
+
+                        <div class="align-center">
+
+                            <p class="movie_page_streaming">Disponible sur : </p>
+
+                        </div>
+
+                        <div class="logo_streaming">
+
+                            <a href="<?= $movie['streaming_link'] ?>" target='_blank'> <img src="./assets/image/disney+_logo.jpg" alt="Logo disney+" /></a>
+
+                        </div>
+
+                    </div>
 
             <?php
 
-            }
-            else {
+                }
+
+                if($movie['streaming'] == 'netflix') {
+                    ?>
+
+                    <div class="streaming_link_button flex">
+
+                        <div class="align-center">
+
+                            <p class="movie_page_streaming">Disponible sur : </p>
+
+                        </div>
+
+                        <div class="logo_streaming">
+
+                            <a href="<?= $movie['streaming_link'] ?>" target='_blank'> <img src="./assets/image/netflix_logo.png" alt="Logo Netflix" class="logo_netflix"/></a>
+
+                        </div>
+
+                    </div>
+
+                <?php
+
+                }
+
+                if($movie['streaming'] == 'prime') {
+                    ?>
+
+                    <div class="streaming_link_button flex">
+
+                        <div class="align-center">
+
+                            <p class="movie_page_streaming">Disponible sur : </p>
+
+                        </div>
+
+                        <div class="logo_streaming">
+
+                            <a href="<?= $movie['streaming_link'] ?>" target='_blank'> <img src="./assets/image/netflix_logo.png" alt="Logo Netflix" class="logo_netflix"/></a>
+
+                        </div>
+
+                    </div>
+
+                <?php
+
+                }
+
+            } else {
                 ?>
 
                     <p class="movie_page_streaming">Disponible sur Aucune Platforme de Streaming</p>

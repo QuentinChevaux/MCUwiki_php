@@ -54,7 +54,7 @@
 
                         </div>
 
-                        <div>
+                        <div class="logo_streaming">
 
                             <a href="<?= $serie['streaming_link'] ?>" target='_blank'> <img src="./assets/image/disney+_logo.jpg" alt="Logo disney+" /></a>
 

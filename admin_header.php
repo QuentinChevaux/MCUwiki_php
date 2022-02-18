@@ -22,6 +22,8 @@
 
                 <a href="./">Retourner a la Page Principale</a>
 
+                <a href="./streaming_availibility.php">Streaming Availibility</a>
+
                 <a href="deconnexion-admin.php">Se Deconnecter</a>
 
             </div>        

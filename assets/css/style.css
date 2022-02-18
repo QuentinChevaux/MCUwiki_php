@@ -100,6 +100,8 @@ nav a {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 30px;
+
+    font-family: 'Roboto';
   
 }
 
@@ -136,6 +138,8 @@ nav a {
   
     color: white;
     padding-top: 30px;
+
+    font-family: 'Roboto';
   
 }
   
@@ -307,6 +311,26 @@ nav a {
     height: 75px;
     border-radius: 10px;
     margin-left: 20px;
+
+}
+
+.logo_netflix {
+
+    background-color: black;
+    padding: 10px;
+
+}
+
+.logo_streaming {
+
+    transition: 200ms ease-out;
+
+}
+
+.logo_streaming:hover {
+
+    transform: scale(1.1);
+    transition: 200ms ease-out;
 
 }
 
