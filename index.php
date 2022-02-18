@@ -10,26 +10,11 @@
     $request_serie -> execute();
     $series = $request_serie -> fetchAll();
 
-        // $tableau = [
-
-        //     'id' => '',
-        //     'titre' => '',
-        //     'description' => '',
-        //     'date' => '',
-        //     'duree' => '',
-        //     'nbepisode' => '', 
-        //     'date_fictive' => '',
-        //     'image' => '',
-        //     'tmdb' => '',
-        //     'streaming' => '',
-        //     'streaming_link' => ''
-
-        // ];
-
     foreach($movies as $movie) {
 
         $tableau[] = [
 
+            'type' => 'film',
             'id' => $movie['id'],
             'titre' => $movie['titre'],
             'description' => $movie['description'],
@@ -45,9 +30,38 @@
 
     }
 
-    echo '<pre>';
-    var_dump($tableau);
-    echo '</pre>';
+    foreach($series as $serie) {
+
+        $tableau[] = [
+
+            'type' => 'serie',
+            'id' => $serie['id'],
+            'titre' => $serie['titre'],
+            'description' => $serie['description'],
+            'date' => $serie['date'],
+            'nbepisode' => $serie['nbepisode'],
+            'date_fictive' => $serie['date_fictive'],
+            'image' => $serie['image'],
+            'tmdb' => $serie['tmdb'],
+            'streaming_link' => $serie['streaming_link']
+
+        ];
+
+    }
+
+    // function sortDate($a, $b) {
+
+    //     return strtotime($a['date']) - strtotime($b['date']);
+
+    // }
+
+    // function sortChronologie($a, $b) {
+
+    //     return strtotime($a['date_fictive']) - strtotime($b['date_fictive']);
+
+    // }
+
+    // usort($tableau, 'sortDate');
 
     $title = 'MCUwiki';
 
@@ -65,34 +79,36 @@
 
                 <h2>Choissisez comment vous voulez triez les Films : </h2>
 
-                    <button name='chronological'>Ordre Chronologique</button>
+                    <button onClick="sortChronologie(<?= json_encode($tableau) ?>)">Ordre Chronologique</button>
 
-                    <button name='date'>Date de Sortie</button>
+                    <button onClick="sortDate(<?= json_encode($tableau) ?>)">Date de Sortie</button>
 
             </div>
 
             <!-- ANCIEN CODE AVEC DOUBLE FOREACH -->
 
-            <!-- <div class="flex_center">
+            <div class="flex_center">
         
                 <?php
                 
-                    // foreach($movies as $movie) {
+                    for($i = 0; $i < count($tableau); $i++) {
 
-                    //     $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-                    //     $date_fr = $date -> format(strtotime($movie['date']));
+                        $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                        $date_fr = $date -> format(strtotime($tableau[$i]['date']));
+
+                        if($tableau[$i]['type'] == 'film') {
 
                 ?>
 
                     <div class="card_margin">
 
-                        <a href="./film.php?id= <?= $movie['id'] ?>">
+                        <a href="./film.php?id= <?= $tableau[$i]['id'] ?>">
                     
-                            <div class='movie_card' style="background-image: url(./assets/image/films/<?= $movie['image'] ?>)">
+                            <div class='movie_card' style="background-image: url(./assets/image/films/<?= $tableau[$i]['image'] ?>)">
             
                                 <div class="movie_card_content">
             
-                                    <h2> <?= $movie['titre'] ?> </h2>
+                                    <h2> <?= $tableau[$i]['titre'] ?> </h2>
 
                                     <div class="savoir_plus">
 
@@ -113,57 +129,48 @@
         
                         <?php
                 
-                    // }
+                    } else if($tableau[$i]['type'] == 'serie') {
         
                 ?>
 
-                    <?php
-                        
-                        // foreach($series as $serie) {
-            
-                        //     $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-                        //     $date_fr = $date -> format(strtotime($movie['date']));
+                    <div class="card_margin">
 
-                    ?>
-                        
-                        <div class="card_margin">
+                    <a href="./serie.php?id= <?= $tableau[$i]['id'] ?>">
 
-                            <a href="./serie.php?id=<?= $serie['id'] ?>">
-                        
-                                <div class='movie_card' style="background-image: url(./assets/image/series/<?= $serie['image'] ?>)">
-                
-                                    <div class="movie_card_content">
-                
-                                        <h2> <?= $serie['titre'] ?> </h2>
+                        <div class='movie_card' style="background-image: url(./assets/image/series/<?= $tableau[$i]['image'] ?>)">
 
-                                        <div class="savoir_plus">
+                            <div class="movie_card_content">
 
-                                            <img class="card_description_img" src="./assets/image/arrow.png" alt="">
-                                            <p class="card_description">En savoir plus</p>
+                                <h2> <?= $tableau[$i]['titre'] ?> </h2>
 
-                                        </div>
+                                <div class="savoir_plus">
 
-                                        <p class="card_date capitalize"> <?= $date_fr ?> </p>
-                
-                                    </div>
-                                    
+                                    <img class="card_description_img" src="./assets/image/arrow.png" alt="">
+                                    <p class="card_description">En savoir plus</p>
+
                                 </div>
 
-                            </a>
+                                <p class="card_date capitalize"> <?= $date_fr ?> </p>
 
+                            </div>
+                            
                         </div>
 
-                        <?php
-                    
-                        // }
+                    </a>
+
+                    </div>   
                 
-                    ?>
-        
-            </div> -->
+                <?php
+
+                    }
+
+                }
+
+                ?>
+
+            </div>
 
             <!-- NOUVEAU CODE D'AFFICHAGE -->
-
-
 
         </div>
 

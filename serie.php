@@ -33,7 +33,7 @@
             <?php 
 
                 $date = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-                $date_fr = $date -> format(strtotime($movie['date']));
+                $date_fr = $date -> format(strtotime($serie['date']));
 
             ?>
 
