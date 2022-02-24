@@ -49,19 +49,19 @@
 
     }
 
-    // function sortDate($a, $b) {
+    function sortDate($a, $b) {
 
-    //     return strtotime($a['date']) - strtotime($b['date']);
+        return strtotime($a['date']) - strtotime($b['date']);
 
-    // }
+    }
 
-    // function sortChronologie($a, $b) {
+    function sortChronologie($a, $b) {
 
-    //     return strtotime($a['date_fictive']) - strtotime($b['date_fictive']);
+        return strtotime($a['date_fictive']) - strtotime($b['date_fictive']);
 
-    // }
+    }
 
-    // usort($tableau, 'sortDate');
+    usort($tableau, 'sortDate');
 
     $title = 'MCUwiki';
 
@@ -84,8 +84,6 @@
                     <button onClick="">Date de Sortie</button>
 
             </div>
-
-            <!-- ANCIEN CODE AVEC DOUBLE FOREACH -->
 
             <div class="flex_center">
         
@@ -169,8 +167,6 @@
                 ?>
 
             </div>
-
-            <!-- NOUVEAU CODE D'AFFICHAGE -->
 
         </div>
 
