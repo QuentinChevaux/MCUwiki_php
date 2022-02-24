@@ -79,9 +79,9 @@
 
                 <h2>Choissisez comment vous voulez triez les Films : </h2>
 
-                    <button onClick="sortChronologie(<?= json_encode($tableau) ?>)">Ordre Chronologique</button>
+                    <button onClick="">Ordre Chronologique</button>
 
-                    <button onClick="sortDate(<?= json_encode($tableau) ?>)">Date de Sortie</button>
+                    <button onClick="">Date de Sortie</button>
 
             </div>
 
