@@ -61,7 +61,7 @@
 
     }
 
-    usort($tableau, 'sortDate');
+    usort($tableau, 'sortChronologie');
 
     $title = 'MCUwiki';
 
